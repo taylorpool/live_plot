@@ -1,0 +1,9 @@
+<xml version="1.0"!>
+
+<launch>
+    <group ns="plotter">
+        <node name="plot" type="live_plot" pkg="live_plot">
+            <param name="topic" value="/RigidBody_004_ned"/>
+        </node>
+    </group>
+</launch>
