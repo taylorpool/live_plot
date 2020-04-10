@@ -2,7 +2,18 @@
 <launch>
     <group ns="plotter">
         <node name="plot" type="live_plot.py" pkg="live_plot" output="screen">
-            <param name="topic" value="/ragnarok_ned"/>
+            <param name="topic" value="/RigidBody_004_ned"/>
+            <param name="rtk_topic" value="/virt_RTK"/>
+        </node>    
+
+        <rosparam command="load" file="$(find roscopter)/params/ekf.yaml"/>
+
+        <node name="ekf_node" pkg="roscopter" type="ekf_node">
+            <remap from="pose" to="RigidBody_004_ned"/>
         </node>
+
+
+        <node name="rosbag" type="play" pkg="rosbag" output="screen" args="--pause /home/magicc/data/mocap/flight29hover.bag"/>
+
     </group>
 </launch>
