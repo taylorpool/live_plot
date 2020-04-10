@@ -1,9 +1,8 @@
-<xml version="1.0"!>
-
+<?xml version="1.0"?>
 <launch>
     <group ns="plotter">
-        <node name="plot" type="live_plot" pkg="live_plot">
-            <param name="topic" value="/RigidBody_004_ned"/>
+        <node name="plot" type="live_plot.py" pkg="live_plot" output="screen">
+            <param name="topic" value="/ragnarok_ned"/>
         </node>
     </group>
 </launch>
